@@ -329,7 +329,12 @@ div#showMore a:hover{
 	text-align: center;
 	margin-top: 24px;
 }
-
+span.likes-count {
+  font-size: 1.6em;
+  padding: 0 10px 0 0;
+  color: #f78d1d;
+  font-weight: bold;
+}
 
 
 
