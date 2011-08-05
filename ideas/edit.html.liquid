@@ -1,4 +1,4 @@
-<div class="span-16 colborder last content" id="questions">
+<div class="span-15 colborder last content" id="questions">
     <h3>Update &ldquo;{{idea.title}}&rdquo;</h3>
     <form action="{{idea.permalink}}" method="post">
       <input name="_method" type="hidden" value="put">
@@ -12,6 +12,7 @@
         <br />
         <textarea name="idea[content]" id="idea_content">{{idea.content}}</textarea>
       </p>
+      <div id="live-preview"></div>
       <p>
         <input type="submit" value="Submit">
       </p>
