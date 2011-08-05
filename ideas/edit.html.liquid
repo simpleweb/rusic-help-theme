@@ -1,0 +1,19 @@
+<div class="span-16 colborder last content" id="questions">
+    <h3>Update &ldquo;{{idea.title}}&rdquo;</h3>
+    <form action="{{idea.permalink}}" method="post">
+      <input name="_method" type="hidden" value="put">
+      <p>
+        <label for="idea_title">Question title</label>
+        <br />
+        <input type="text" name="idea[title]" value="{{idea.title}}" class="title" id="idea_title" placeholder="Question title">
+      </p>
+      <p>
+        <label for="idea_content">Answer</label>
+        <br />
+        <textarea name="idea[content]" id="idea_content">{{idea.content}}</textarea>
+      </p>
+      <p>
+        <input type="submit" value="Submit">
+      </p>
+    </form>
+</div>

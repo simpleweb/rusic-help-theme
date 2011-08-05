@@ -1,0 +1,60 @@
+{% if env == 'production' or env == 'staging' %}
+    {%assign asseturl = "http://s3-eu-west-1.amazonaws.com/hq.rusic"%}
+{% else %}
+    {%assign asseturl = "http://localhost:8080"%}
+{% endif %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>{{rusic.title}}</title>
+	<!-- Framework CSS --> 
+    <link rel="stylesheet" href="{{asseturl}}/css/blueprint/screen.css" type="text/css" media="screen, projection"> 
+    <link rel="stylesheet" href="{{asseturl}}/css/blueprint/print.css" type="text/css" media="print"> 
+    <!--[if lt IE 8]><link rel="stylesheet" href="{{asseturl}}/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]--> 
+ 
+    <!-- Import fancy-type plugin for the sample page. --> 
+    <link rel="stylesheet" href="{{asseturl}}/css/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="{{asseturl}}/css/style.css" type="text/css" media="screen, projection">
+    {{content_for_header}}
+</head>
+
+<body>
+    <div class="container">
+        <div id="header" class="span-24">
+            <h1>Rusic Help</h1>
+            <hr />
+            {% if notice %}
+              <div class="success">
+                {{notice}}
+              </div>
+            {% endif %}
+            {% if alert %}
+              <div class="error">
+                {{alert}}
+              </div>
+            {% endif %}
+        </div>
+        <div class="span-6 colborder" id="sidebar">
+            <h3>Help Topics</h3>
+            <ul class="topicNav">
+                <li><a href="/general-questions">General questions</a></li>
+                <li><a href="/customising-notifications">Customising notifications</a></li>
+                <li class="on"><a href="/theming">Theming</a></li>
+                <li id="giveIdeas"><a href="http://hq.rusic.com" class="button red rounded">Suggest Improvements</a></li>
+            </ul>
+            <h3>What is Rusic?</h3>
+            <p>It's a place where you can generate ideas from your friends, colleagues and family.</p>
+            <p>There's a free version that is super simple to set up and paid versions that let you create custom skins to make it do things it was never designed to (like this help site!).</p>
+        </div>
+        {{yield}}
+        <div id="footer" class="span-24">
+            <hr />
+            <p><a href="http://rusic.com">Rusic</a> is built and maintained with ❤ by <a href="http://simpleweb.co.uk">Simpleweb</a>, the realtime digital agency. &copy;2011</p>
+        </div>
+    </div>
+</body>
+</html>
