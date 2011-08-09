@@ -3,7 +3,7 @@
     {% if rusic.summary %}
       {{rusic.summary | markdown}}
     {% endif %}
-    {% if current_user and rusic.owner.id == current_user.id %}
+    {% if current_user and rusic.owner.uuid == current_user.uuid %}
       <p><a href="{{rusic.permalink}}/ideas/new" class="button orange">Add new help item</a></p>
     {% endif %}
     {% if rusic.ideas != empty %}
