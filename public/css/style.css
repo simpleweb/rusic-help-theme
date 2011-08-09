@@ -335,9 +335,17 @@ span.likes-count {
   color: #f78d1d;
   font-weight: bold;
 }
+code {
+  background-color: #f8f8f8;
+  padding: 2px;
+}
 pre {
   padding: 0 3px;
   background-color: #d5edf8;
+}
+pre code {
+  background-color: #d5edf8;
+  padding: 0;
 }
 
 
