@@ -1,5 +1,5 @@
 {% if env == 'production' or env == 'staging' %}
-    {%assign asseturl = "http://s3-eu-west-1.amazonaws.com/hq.rusic"%}
+    {%assign asseturl = "https://s3.amazonaws.com/rusic-help"%}
 {% else %}
     {%assign asseturl = "http://localhost:8080"%}
 {% endif %}
@@ -52,7 +52,7 @@
                 <li><a href="/general-questions">General questions</a></li>
                 <li><a href="/customising-notifications">Customising notifications</a></li>
                 <li class="on"><a href="/theming">Theming</a></li>
-                <li id="giveIdeas"><a href="http://hq.rusic.com" class="button red rounded">Suggest Improvements</a></li>
+                <li id="giveIdeas"><a href="http://hq.rusic.com/suggest-improvements" class="button red rounded">Suggest Improvements</a></li>
             </ul>
             <h3>What is Rusic?</h3>
             <p>It's a place where you can generate ideas from your friends, colleagues and family.</p>
