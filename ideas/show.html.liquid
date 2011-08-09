@@ -3,7 +3,7 @@
     <a href="{{rusic.permalink}}" class="button gray small">Back to list</a>
   </span>
   <h3>{{idea.title}}
-    {% if current_user and rusic.owner.id == current_user.id %}
+    {% if current_user and rusic.owner.uuid == current_user.uuid %}
       [<a href="{{idea.permalink}}/edit">edit</a>]
     {% endif %}
   </h3>
@@ -14,4 +14,48 @@
   <div class="content">
     {{idea.content | markdown}}
   </div>
+  {% if idea.comments != empty %}
+    <hr />
+    <h4>Discussion about {{idea.title}} ({{idea.comments.size}} comments)</h4>
+    <div id="comments">
+      {% for comment in idea.comments %}
+        {% assign owner = comment.user %}
+        <div class="comment">
+          <hr />
+          {{comment.body | markdown}}
+          <p class="author">
+            by <img class="profile" src="{{owner.image_url}}" alt="{{owner.nickname}}" />
+            <a href="{{owner.profile_url}}">{{owner.nickname}}</a>
+            {% if owner.uuid == idea.user.uuid %}
+              {% comment %} THIS COMMENT IS BY THE IDEA OWNER {% endcomment %}
+              <span title="This comment is by the idea's author">✎</span>
+            {% endif %}
+            at {{comment.created_at | date: "%H:%M on %a %d %b %Y"}}
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+  <hr />
+  <h4>Add a comment</h4>
+  {% if current_user %}
+    <form id="new_comment" action="{{idea.permalink}}/comments" method="post">
+      <p>
+        <label for="comment_body">Comment</label>
+        <textarea id="comment_body" name="comment[body]"></textarea>
+      </p>
+      <p>
+        <input type="checkbox" name="comment[should_post_to_social]" value="1" checked />
+        Post this comment to {{current_user.provider}}?
+      </p>
+      <p>
+        <input type="submit" name="submit" value="Post comment" />
+      </p>
+    </form>
+  {% else %}
+    <p>
+      Sign in with <a href="/users/auth/twitter">twitter</a>
+      or <a href="/users/auth/facebook">facebook</a> to comment!
+    </p>
+  {% endif %}
 </div>

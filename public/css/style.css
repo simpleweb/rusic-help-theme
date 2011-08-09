@@ -347,6 +347,17 @@ pre code {
   background-color: #d5edf8;
   padding: 0;
 }
-
-
-
+form#new_comment label {
+  display: block;
+}
+p.author {
+  margin: 5px 0;
+  font-size: 11px;
+  color: #888;
+}
+img.profile {
+  width: 16px; height: 16px;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 2px;
+  vertical-align: top;
+}
