@@ -12,5 +12,10 @@ $(function() {
           prev_text = input_text;
       }
   }
-  setInterval(update_live_preview, 300);
+  if($('#idea_content').length) {
+    setInterval(update_live_preview, 300);
+  }
+
+  $("a#sign-in").fancybox();
+
 });
