@@ -1,7 +1,7 @@
 {% if env == 'production' or env == 'staging' %}
-    {%assign asseturl = "https://s3.amazonaws.com/rusic-help"%}
+    {% assign asset_url = "https://s3.amazonaws.com/rusic-help" %}
 {% else %}
-    {%assign asseturl = "http://localhost:8080"%}
+    {% assign asset_url = "http://localhost:8080" %}
 {% endif %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -18,16 +18,20 @@
 	  {% endif %}
 	</title>
 	<!-- Framework CSS --> 
-    <link rel="stylesheet" href="{{asseturl}}/css/blueprint/screen.css" type="text/css" media="screen, projection"> 
-    <link rel="stylesheet" href="{{asseturl}}/css/blueprint/print.css" type="text/css" media="print"> 
-    <!--[if lt IE 8]><link rel="stylesheet" href="{{asseturl}}/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]--> 
+    <link rel="stylesheet" href="{{asset_url}}/css/blueprint/screen.css" type="text/css" media="screen, projection"> 
+    <link rel="stylesheet" href="{{asset_url}}/css/blueprint/print.css" type="text/css" media="print"> 
+    <!--[if lt IE 8]><link rel="stylesheet" href="{{asset_url}}/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]--> 
  
     <!-- Import fancy-type plugin for the sample page. --> 
-    <link rel="stylesheet" href="{{asseturl}}/css/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="{{asseturl}}/css/style.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="{{asset_url}}/css/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="{{asset_url}}/css/style.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="{{asset_url}}/js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen, projection">
+    
     {{content_for_header}}
-    <script type="text/javascript" charset="utf-8" src="{{asseturl}}/js/showdown.js"></script>
-    <script type="text/javascript" charset="utf-8" src="{{asseturl}}/js/script.js"></script>
+    
+    <script type="text/javascript" charset="utf-8" src="{{asset_url}}/js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{{asset_url}}/js/showdown.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{{asset_url}}/js/script.js"></script>
 </head>
 
 <body>
@@ -57,6 +61,16 @@
             <h3>What is Rusic?</h3>
             <p>It's a place where you can generate ideas from your friends, colleagues and family.</p>
             <p>There's a free version that is super simple to set up and paid versions that let you create custom skins to make it do things it was never designed to (like this help site!).</p>
+            <hr />
+            {% if current_user %}
+              <p>
+                Hi {{current_user.nickname}}, are are signed in.
+                <br />
+                <a href="/logout">Sign out</a>
+              </p>
+            {% else %}
+              Sign in with <a href="/users/auth/twitter">twitter</a> or <a href="/users/auth/facebook">facebook</a> to like topics.
+            {% endif %}
         </div>
         {{yield}}
         <div id="footer" class="span-24">
