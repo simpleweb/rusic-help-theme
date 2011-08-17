@@ -53,10 +53,18 @@
         <div class="span-6 colborder" id="sidebar">
             <h3>Help Topics</h3>
             <ul class="topicNav">
-                <li><a href="/general-questions">General questions</a></li>
-                <li><a href="/customising-notifications">Customising notifications</a></li>
-                <li class="on"><a href="/theming">Theming</a></li>
-                <li id="giveIdeas"><a href="http://hq.rusic.com/suggest-improvements" class="button red rounded">Suggest Improvements</a></li>
+              <li{% if rusic.slug == 'general-questions' %} class="on"{% endif %}>
+                <a href="/general-questions">General questions</a>
+              </li>
+              <li{% if rusic.slug == 'customising-notifications' %} class="on"{% endif %}>
+                <a href="/customising-notifications">Customising notifications</a>
+              </li>
+              <li{% if rusic.slug == 'theming' %} class="on"{% endif %}>
+                <a href="/theming">Theming</a>
+              </li>
+              <li id="giveIdeas">
+                <a href="http://hq.rusic.com/suggest-improvements" class="button red rounded">Suggest Improvements</a>
+              </li>
             </ul>
             <h3>What is Rusic?</h3>
             <p>It's a place where you can generate ideas from your friends, colleagues and family.</p>
