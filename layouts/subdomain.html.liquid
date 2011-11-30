@@ -4,31 +4,31 @@
     {% assign asset_url = "http://localhost:8080" %}
 {% endif %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-	<title>
-	  {% if idea %}
-	    {{idea.title}} &middot; {{rusic.title}}
-	  {% else %}
-	    {{rusic.title}}
-	  {% endif %}
-	</title>
-	<!-- Framework CSS --> 
-    <link rel="stylesheet" href="{{asset_url}}/css/blueprint/screen.css" type="text/css" media="screen, projection"> 
-    <link rel="stylesheet" href="{{asset_url}}/css/blueprint/print.css" type="text/css" media="print"> 
-    <!--[if lt IE 8]><link rel="stylesheet" href="{{asset_url}}/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]--> 
- 
-    <!-- Import fancy-type plugin for the sample page. --> 
+  <title>
+    {% if idea %}
+      {{idea.title}} &middot; {{space.title}}
+    {% else %}
+      {{space.title}}
+    {% endif %}
+  </title>
+  <!-- Framework CSS -->
+    <link rel="stylesheet" href="{{asset_url}}/css/blueprint/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="{{asset_url}}/css/blueprint/print.css" type="text/css" media="print">
+    <!--[if lt IE 8]><link rel="stylesheet" href="{{asset_url}}/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+    <!-- Import fancy-type plugin for the sample page. -->
     <link rel="stylesheet" href="{{asset_url}}/css/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
     <link rel="stylesheet" href="{{asset_url}}/css/style.css" type="text/css" media="screen, projection">
     <link rel="stylesheet" href="{{asset_url}}/js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen, projection">
-    
+
     {{content_for_header}}
-    
+
     <script type="text/javascript" charset="utf-8" src="{{asset_url}}/js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
     <script type="text/javascript" charset="utf-8" src="{{asset_url}}/js/showdown.js"></script>
     <script type="text/javascript" charset="utf-8" src="{{asset_url}}/js/script.js"></script>
@@ -53,17 +53,17 @@
         <div class="span-6 colborder" id="sidebar">
             <h3>Help Topics</h3>
             <ul class="topicNav">
-              <li{% if rusic.slug == 'general-questions' %} class="on"{% endif %}>
+              <li{% if space.slug == 'general-questions' %} class="on"{% endif %}>
                 <a href="/general-questions">General questions</a>
               </li>
-              <li{% if rusic.slug == 'customising-notifications' %} class="on"{% endif %}>
+              <li{% if space.slug == 'customising-notifications' %} class="on"{% endif %}>
                 <a href="/customising-notifications">Customising notifications</a>
               </li>
-              <li{% if rusic.slug == 'theming' %} class="on"{% endif %}>
+              <li{% if space.slug == 'theming' %} class="on"{% endif %}>
                 <a href="/theming">Theming</a>
               </li>
               <li id="giveIdeas">
-                <a href="http://hq.rusic.com/suggest-improvements" class="button red rounded">Suggest Improvements</a>
+                <a href="http://hq.space.com/suggest-improvements" class="button red rounded">Suggest Improvements</a>
               </li>
             </ul>
             <h3>What is Rusic?</h3>

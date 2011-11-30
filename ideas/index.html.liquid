@@ -1,14 +1,14 @@
 <div class="span-17 last content" id="questions">
-    <h3>{{rusic.title}}</h3>
-    {% if rusic.summary %}
-      {{rusic.summary | markdown}}
+    <h3>{{space.title}}</h3>
+    {% if space.summary %}
+      {{space.summary | markdown}}
     {% endif %}
-    {% if current_user and rusic.owner.uuid == current_user.uuid %}
-      <p><a href="{{rusic.permalink}}/ideas/new" class="button orange">Add new help item</a></p>
+    {% if current_user and space.owner.uuid == current_user.uuid %}
+      <p><a href="{{space.permalink}}/ideas/new" class="button orange">Add new help item</a></p>
     {% endif %}
-    {% if rusic.ideas != empty %}
+    {% if space.ideas != empty %}
       <ol>
-        {% for idea in rusic.ideas %}
+        {% for idea in space.ideas %}
           <li>
             <a href="{{idea.permalink}}">{{idea.title}}</a>
             <span>{{idea.likes}} &hearts;</span>

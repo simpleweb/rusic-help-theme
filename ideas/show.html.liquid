@@ -1,9 +1,9 @@
 <div class="span-17 last content" id="question">
   <span id="backLink">
-    <a href="{{rusic.permalink}}" class="button gray small">Back to list</a>
+    <a href="{{space.permalink}}" class="button gray small">Back to list</a>
   </span>
   <h3>{{idea.title}}
-    {% if current_user and rusic.owner.uuid == current_user.uuid %}
+    {% if current_user and space.owner.uuid == current_user.uuid %}
       [<a href="{{idea.permalink}}/edit">edit</a>]
     {% endif %}
   </h3>
