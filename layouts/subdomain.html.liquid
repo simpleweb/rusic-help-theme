@@ -11,11 +11,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
   <title>
-    {% if idea %}
-      {{idea.title}} &middot; {{space.title}}
-    {% else %}
-      {{space.title}}
-    {% endif %}
+    {% if idea %} {{idea.title}} &middot; {% endif %}
+    {{space.title}}
   </title>
   <!-- Framework CSS -->
     <link rel="stylesheet" href="{{asset_url}}/css/blueprint/screen.css" type="text/css" media="screen, projection">
@@ -63,7 +60,7 @@
                 <a href="/theming">Theming</a>
               </li>
               <li id="giveIdeas">
-                <a href="http://hq.space.com/suggest-improvements" class="button red rounded">Suggest Improvements</a>
+                <a href="http://hq.rusic.com/suggest-improvements" class="button red rounded">Suggest Improvements</a>
               </li>
             </ul>
             <h3>What is Rusic?</h3>
@@ -77,7 +74,7 @@
                 <a href="/logout">Sign out</a>
               </p>
             {% else %}
-              Sign in with <a href="/users/auth/twitter">twitter</a> or <a href="/users/auth/facebook">facebook</a> to like topics.
+              Sign in with <a href="/auth/twitter">twitter</a> or <a href="/auth/facebook">facebook</a> to like topics.
             {% endif %}
         </div>
         {{yield}}
