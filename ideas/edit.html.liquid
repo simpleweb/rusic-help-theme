@@ -10,7 +10,7 @@
       <p>
         <label for="idea_content">Answer</label>
         <br />
-        <textarea name="idea[content]" id="idea_content">{{idea.content}}</textarea>
+        <textarea name="idea[content]" id="idea_content">{{ idea.content | escape }}</textarea>
       </p>
       <div id="live-preview"></div>
       <p>
